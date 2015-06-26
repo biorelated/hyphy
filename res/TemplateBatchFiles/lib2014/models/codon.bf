@@ -80,7 +80,7 @@ function models.codon.generic.defineQMatrix (modelSpec, namespace) {
 }
 
 
-lfunction models.codon.diff (a,b) {
+lfunction models.codon.single_diff (a,b) {
     r = {"from" : None,
          "to" : None,
          "position" : None};
