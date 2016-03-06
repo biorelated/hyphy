@@ -10,16 +10,16 @@ HyPhy is an open-source software package for the analysis of genetic sequences u
 Installation
 ------------
 
-Hyphy depends on CMake version 3.0 and above  for its build system. Furthermore, Hyphy is dependent on other development libraries like
-libcurl and libpthread. Libcurl requires development libraries such as crypto++ and openssl ( or gnutls depending on your configuration)
-On Ubuntu these are libcurl-dev, libcrypto++-dev and libssl-dev.
+Hyphy's build system depends on CMake version 3.0 and above. It is also important to note that Hyphy is dependent on other development libraries for example
+`libcurl` and `libpthread`. `Libcurl` requires development libraries such as `crypto++` and `openssl` ( or gnutls depending on your configuration). Ubuntu provides `libcurl-dev`, `libcrypto++-dev` and `libssl-dev`.
 
-You can download a specific release from this repository or if you prefer the master branch simply 
-clone the repo with
+To install, first clone this repository 
 
 `git clone git@github.com:veg/hyphy.git`
 
-Change your directory to the newly cloned directory
+or download a specific release from here https://github.com/veg/hyphy/releases
+
+Change your directory to the newly cloned or source directory
 
 `cd hyphy`
 
@@ -35,17 +35,17 @@ run cmake with the -G switch
 CMake supports a number of build system generators,
 feel free to peruse these and use them if you wish.
 
-By default, HyPhy installs into `/usr/local`. HyPhy can be installed on any location in your system. The `DINSTALL_PREFIX` is used to specify an installation location.
+By default, HyPhy installs into `/usr/local`. Use the `DINSTALL_PREFIX` to specify an installation location.
 
 `cmake -DINSTALL_PREFIX=/location/of/choice`
 
-For example,to install hyphy at /opt/hyphy, you would,
+To install hyphy at /opt/hyphy, run the following commands
 
 `mkdir -p /opt/hyphy`
 
 `cmake -DINSTALL_PREFIX=/opt/hyphy .`
 
-If you are on an OS X platform, you can specify which OS X SDK to use
+You can specify which OS X SDK to use if you are on an OS X platform using the following command
 
 `cmake -DCMAKE_OSX_SYSROOT=/Developer/SDKs/MacOSX10.9.sdk/ .`
 
