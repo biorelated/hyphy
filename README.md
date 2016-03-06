@@ -11,15 +11,15 @@ Installation
 ------------
 
 Hyphy's build system depends on CMake version 3.0 and above. It is also important to note that Hyphy is dependent on other development libraries for example
-`libcurl` and `libpthread`. `Libcurl` requires development libraries such as `crypto++` and `openssl` ( or gnutls depending on your configuration). Ubuntu provides `libcurl-dev`, `libcrypto++-dev` and `libssl-dev`.
+`libcurl` and `libpthread`. `Libcurl` requires development libraries such as `crypto++` and `openssl` ( or gnutls depending on your configuration). Ubuntu provides `libcurl-dev`, `libcrypto++-dev` and `libssl-dev`. Ensure that these libraries are installed on your system.
 
 To install, first clone this repository 
 
 `git clone git@github.com:veg/hyphy.git`
 
-or download a specific release from here https://github.com/veg/hyphy/releases
+or download a specific release from https://github.com/veg/hyphy/releases
 
-Change your directory to the newly cloned or source directory
+Change your directory to the source directory
 
 `cd hyphy`
 
@@ -49,8 +49,7 @@ You can specify which OS X SDK to use if you are on an OS X platform using the f
 
 `cmake -DCMAKE_OSX_SYSROOT=/Developer/SDKs/MacOSX10.9.sdk/ .`
 
-If you're on a UNIX-compatible system, and you're comfortable with GNU make,
-then run `make` with one of the following build targets:
+If you're on a UNIX-compatible system, and you're comfortable with GNU make, then run `make` with one of the following build targets:
 
 +   `MAC` - build a Mac Carbon application
 +   `HYPHYGTK` - HYPHY with GTK
@@ -61,35 +60,42 @@ then run `make` with one of the following build targets:
 +   `LIB` - build a HyPhy library (libhyphy_mp) using pthreads to do multiprocessing
 -   `GTEST` - build HyPhy's gtest testing executable (HYPHYGTEST)
 
-For example to create a MPI build of HYPHY using openMPI ensure that you 
-have openmpi installed and available on your  path. You can check if this
-is the case after running 
-`cmake .` you should see something similar to this in your output
+Creating MPI builds
+--------
+
+To create an MPI build of HYPHY using openMPI ensure that you 
+have openmpi installed and that the executables are available on your  path. 
+You can check if MPI environment is available by running 
+`cmake .`  If successful, you should see 
 
 `-- Found MPI_C:` 
 
 `-- Found MPI_CXX:`
 
-To compile the MPI build of HyPhy, run
+or something similar on your terminal.
+
+Now to compile the MPI build of HyPhy, just run
 
 `make HYPHYMPI`
 
-And to install the software,run
+And then 
 
 `make install`
 
+
 Depending on your build parameters and configuration , 
 
-+   HYPHYMP(I) will be installed at  `/location/of/choice/bin`
-+   libhyphy_mp.(so/dylib/dll) will be installed at `/location/of/choice/lib`
++   `HYPHYMPI` will be installed at  `/location/of/choice/bin`
++   `libhyphy_mp` .(`so/dylib/dll`) will be installed at `/location/of/choice/lib`
 +   HyPhy's standard library of batchfiles will go into `/location/of/choice/lib/hyphy`
 
 
 Running tests
 ------
-To test HyPhy, build with the GTEST target and run ./HYPHYGTEST from the source directory.
-For example 
+To test HyPhy, build it against the `GTEST` target and run `./HYPHYGTEST` from the source directory as follows
 
-`make GTEST`
+`cd HyPhy`
+
+`make GTEST .`
 
 `./HYPHYGTEST`
